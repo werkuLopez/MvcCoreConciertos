@@ -63,7 +63,12 @@
                         @Html.DisplayFor(modelItem => item.Artista)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdCategoria)
+                        @{
+                            var categoria = categorias.FirstOrDefault(x => x.IdCategoria == item.IdCategoria); 
+                        }
+
+                        @Html.DisplayFor(modelItem => categoria.Nombre)
+                        
                     </td>
                     <td>
                         <img src="@(urlsBucket+item.Imagen)" alt="@item.Nombre" width="150px" height="150pxs" />
